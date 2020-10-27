@@ -1,3 +1,4 @@
+
 const defaultState = {
   inputValue: "",
   list:[
@@ -15,18 +16,14 @@ export default (state = defaultState, action) => {
   }
   if (action.type === "add_todo_item") {
     const newState = JSON.parse(JSON.stringify(state));
-    // newState.list.push(newState.inputValue);
-    // newState.show.push(true);
     newState.list.push({ text: newState.inputValue, isCompleted: false });
     newState.inputValue = "";
     return newState;
   }
-
   if (action.type === "toggle_todo_item") {
     const newState = JSON.parse(JSON.stringify(state));
     newState.list[action.value].isCompleted = !state.list[action.value].isCompleted;
     return newState;
   }
-
   return state;
 };
