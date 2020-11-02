@@ -24,18 +24,36 @@ const Todolist2 = props => {
     // Update the document title using the browser API
     document.title = `You clicked ${count} times`;
   });
+  const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync }) =>
+    <div>
+      <button onClick={onIncrementAsync}>
+        Increment after 1 second
+    </button>
+      {' '}
+      <button onClick={onIncrement}>
+        Increment
+    </button>
+      {' '}
+      <button onClick={onDecrement}>
+        Decrement
+    </button>
+      <hr />
+      <div>
+        Clicked: {value} times
+    </div>
+    </div>
 
   return (
     <Fragment>
 
-
       <div style={{ marginTop: "10px", marginLeft: "10px" }}>
+        <Counter></Counter>
         <div>
           <div>
             <p>You clicked {count} times</p>
             <button onClick={() => setCount(count + 1)}>
               Click me
-    </button>
+            </button>
           </div>
           <Input
             value={inputValue}
